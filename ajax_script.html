@@ -1,3 +1,8 @@
+<!-- here we have a small script which is called when our html button is pressed
+it will send whatever is placed into html <input> to the URL specified via an HTTP post request
+and put the response into the netIncome field
+ -->
+
 <script>
     $(document).ready(function (){
         $("#start").click(function (){
@@ -10,6 +15,7 @@
                 data: JSON.stringify({gross_income: crossIncome}),
                 success: function(data){
                     console.log(data);
+					$("#netIncome").val(data);
                 },
                 error: function (err){
                     console.log(err)
