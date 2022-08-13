@@ -1,0 +1,20 @@
+<script>
+    $(document).ready(function (){
+        $("#start").click(function (){
+            crossIncome = $("#crossIncome").val();
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                dataType: "json",
+                url: "https://htcs5604flaskpayeapp.herokuapp.com/getNetIncome/",
+                data: JSON.stringify({gross_income: crossIncome}),
+                success: function(data){
+                    console.log(data);
+                },
+                error: function (err){
+                    console.log(err)
+                }
+            });
+        });
+    });
+</script>
